@@ -17,9 +17,10 @@ dist/
 # Maven
 target/
 
-# JetBrains IDE
+# IDE
 .idea/
 out/
+bin/
 
 # Unit test reports
 TEST*.xml

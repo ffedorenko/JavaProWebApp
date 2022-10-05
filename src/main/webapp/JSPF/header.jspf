@@ -1,0 +1,17 @@
+<style>
+    li {
+        display: inline-block;
+        list-style: none;
+        border: 1px solid black;
+    }
+</style>
+
+<ul style="border:1px solid red; padding:0">
+    <li><a href="/JavaProWebApp">Index</a></li>
+    <li><a href="/JavaProWebApp/Task1">Task 1</a></li>
+    <li><a href="/JavaProWebApp/Task2">Task 2</a></li>
+    <li><a href="/JavaProWebApp/Task3">Task 3</a></li>
+    <li><a href="/JavaProWebApp/Task4">Task 4</a></li>
+    <li><a href="/JavaProWebApp/Task5">Task 5</a></li>
+    <li><a href="/JavaProWebApp/Task6">Task 6</a></li>
+</ul>
