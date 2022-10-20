@@ -1,33 +1,23 @@
 package com.hillel.fedorenko.jdbc.connection;
 
-import java.io.IOException;
-import java.io.InputStream;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import static java.util.Objects.nonNull;
 
 public class StoreConnection {
     public static Connection provideConnection() {
-        Properties properties = new Properties();
-        try (InputStream inputStream = StoreConnection
-                .class
-                .getClassLoader()
-                .getResourceAsStream("db.properties")) {
-            properties.load(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Cannot read properties");
-            return null;
-        }
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/store", properties);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("Cannot provide connection");
+            Context envContext = (Context) new InitialContext().lookup("java:/comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/store");
+            return ds.getConnection();
+        } catch (SQLException | NamingException e) {
+            System.err.println("Cannot get connection");
             return null;
         }
     }

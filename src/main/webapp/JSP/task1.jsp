@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<c:import url="/JSPF/header.jspf"/>
+<%@ include file="/JSPF/header.jspf" %>
 
 <form method="post">
     <h1>Info by Order number</h1>

@@ -1,3 +1,9 @@
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:setBundle basename="messages"/>
+
 <style>
     li {
         display: inline-block;
@@ -14,4 +20,13 @@
     <li><a href="/JavaProWebApp/Task4">Task 4</a></li>
     <li><a href="/JavaProWebApp/Task5">Task 5</a></li>
     <li><a href="/JavaProWebApp/Task6">Task 6</a></li>
+
+    <c:choose>
+        <c:when test="${not empty user}">
+            <li>User ${user.name} <a href="/JavaProWebApp/logout">Logout</a></li>
+        </c:when>
+        <c:otherwise>
+            <li><a href="/JavaProWebApp/login">Login</a></li>
+        </c:otherwise>
+    </c:choose>
 </ul>

@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<c:import url="/JSPF/header.jspf"/>
+<%@ include file="/JSPF/header.jspf" %>
 
 <form method="post">
     <h1>New order from products ordered today</h1>
@@ -15,14 +15,20 @@
     <button type="submit">Submit</button>
 </form>
 
-<c:if test="${output > 0}">
-    <h2>Successful created:</h2>
-    "${order.display}"
-</c:if>
+<c:choose>
+    <c:when test="${not empty errorMessage}">
+        <h3>${errorMessage}</h3>
+    </c:when>
 
-<c:if test="${output < 1}">
-    <h2>Cannot find any order by this request</h2>
-</c:if>
-
+    <c:otherwise>
+        <c:if test="${output > 0}">
+            <h2>Successful created:</h2>
+            "${order.display}"
+        </c:if>
+        <c:if test="${output < 1}">
+            <h2>Cannot find any order by this request</h2>
+        </c:if>
+    </c:otherwise>
+</c:choose>
 </body>
 </html>
