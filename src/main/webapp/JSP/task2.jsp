@@ -1,23 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>Info by max sum and distinct products</title>
+    <title>Task 2</title>
 </head>
 <body>
 
 <%@ include file="/JSPF/header.jspf" %>
 
 <form method="post">
-    <h1>Info by max sum and distinct products</h1>
-    <label>Max sum of the order:
+    <h1><fmt:message key="header.task2"/></h1>
+    <label><fmt:message key="task2.label1"/>
         <input type="text" name="sum">
     </label>
-    <label>Count of distinct products:
+    <label><fmt:message key="task2.label2"/>
         <input type="number" name="distinct">
     </label>>
-    <button type="submit">Submit</button>
+    <button type="submit"><fmt:message key="submit"/></button>
 </form>
 
 <c:if test="${not empty output}">
@@ -27,7 +27,7 @@
 </c:if>
 
 <c:if test="${check == 0}">
-    <h2>Cannot find any order by this request</h2>
+    <h2><fmt:message key="notfound"/></h2>
 </c:if>
 
 </body>

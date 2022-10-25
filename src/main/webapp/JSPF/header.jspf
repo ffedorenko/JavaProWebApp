@@ -13,20 +13,28 @@
 </style>
 
 <ul style="border:1px solid red; padding:0">
-    <li><a href="/JavaProWebApp">Index</a></li>
-    <li><a href="/JavaProWebApp/Task1">Task 1</a></li>
-    <li><a href="/JavaProWebApp/Task2">Task 2</a></li>
-    <li><a href="/JavaProWebApp/Task3">Task 3</a></li>
-    <li><a href="/JavaProWebApp/Task4">Task 4</a></li>
-    <li><a href="/JavaProWebApp/Task5">Task 5</a></li>
-    <li><a href="/JavaProWebApp/Task6">Task 6</a></li>
+    <li><a href="/JavaProWebApp"><fmt:message key="header.index"/></a></li>
+    <li><a href="/JavaProWebApp/Task1"><fmt:message key="header.task1"/></a></li>
+    <li><a href="/JavaProWebApp/Task2"><fmt:message key="header.task2"/></a></li>
+    <li><a href="/JavaProWebApp/Task3"><fmt:message key="header.task3"/></a></li>
+    <li><a href="/JavaProWebApp/Task4"><fmt:message key="header.task4"/></a></li>
+    <li><a href="/JavaProWebApp/Task5"><fmt:message key="header.task5"/></a></li>
+    <li><a href="/JavaProWebApp/Task6"><fmt:message key="header.task6"/></a></li>
 
     <c:choose>
         <c:when test="${not empty user}">
-            <li>User ${user.name} <a href="/JavaProWebApp/logout">Logout</a></li>
+            <li><fmt:message key="header.user"/> ${user.name} <a href="/JavaProWebApp/logout"><fmt:message key="header.logout"/></a></li>
         </c:when>
         <c:otherwise>
-            <li><a href="/JavaProWebApp/login">Login</a></li>
+            <li><a href="/JavaProWebApp/login"><fmt:message key="header.login"/></a></li>
         </c:otherwise>
     </c:choose>
 </ul>
+
+<form action="/JavaProWebApp/language" method="post">
+    <select name="locale">
+        <option value="en_US">English</option>
+        <option value="ua_UA">Ukrainian</option>
+    </select>
+    <input type="submit">
+</form>

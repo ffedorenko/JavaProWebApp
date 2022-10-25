@@ -1,18 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>New order from products ordered today</title>
+    <title>Task 5</title>
 </head>
 <body>
 
 <%@ include file="/JSPF/header.jspf" %>
 
 <form method="post">
-    <h1>New order from products ordered today</h1>
-    <label>Create new order from products ordered today</label>
-    <button type="submit">Submit</button>
+    <label><fmt:message key="header.task5"/></label>
+    <button type="submit"><fmt:message key="submit"/></button>
 </form>
 
 <c:choose>
@@ -22,11 +21,11 @@
 
     <c:otherwise>
         <c:if test="${output > 0}">
-            <h2>Successful created:</h2>
+            <h2><fmt:message key="task5.created"/></h2>
             "${order.display}"
         </c:if>
         <c:if test="${output < 1}">
-            <h2>Cannot find any order by this request</h2>
+            <h2><fmt:message key="notfound"/></h2>
         </c:if>
     </c:otherwise>
 </c:choose>
